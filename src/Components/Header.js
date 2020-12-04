@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "../Style/Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShopppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
@@ -32,6 +32,7 @@ function Header() {
         <div className="header_optionBasket">
           <ShopppingBasketIcon />
           <span className="header_optionLineTwo header_basketCount">0</span>
+          {/*Dynamic*/}
         </div>
       </div>
     </div>

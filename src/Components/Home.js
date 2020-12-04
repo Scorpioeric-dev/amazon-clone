@@ -56,10 +56,10 @@ function Home() {
           {/*Bottom Row*/}
           <Product
             id="6"
-            title="Kenwood kMix Stand Mixer for Baking, stylish Kitchen Mixer with K-beater , Dough Hook and Whisk, 5 Litre Glass Bowl"
-            price={239.0}
-            rating={4}
-            image="https://www.kenwoodworld.com/WebImage/Global/Product%20images/Kmix%20products/KMX754RD/KMX754RD_800x600.png"
+            title="The PS5 is understated, unobtrusive, sleek, and elegant. The console's form factor also makes a departure from what's come before it, opting for a slanted, parallelogram design rather than a typical boxy or dome-shaped approach. The PS4 is even smaller and quieter than the PS3 launch box and the PS3 slim."
+            price={299.0}
+            rating={5}
+            image="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ps5-1-1591910417.jpg?crop=1.00xw:0.907xh;0,0&resize=1200:*"
           />
         </div>
       </div>

@@ -2,7 +2,10 @@ import React from "react";
 import "../Style/Checkout.css";
 import Subtotal from "../Components/Subtotal";
 
-function Checkout() {
+
+
+const Checkout = () => {
+  
   return (
     <div className="checkout">
       <div className="checkout_left">

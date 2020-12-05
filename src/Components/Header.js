@@ -1,13 +1,13 @@
 import React from "react";
 import "../Style/Header.css";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import ShopppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
 function Header() {
   return (
     <div className="header">
-      <Link to='/'>
+      <Link to="/">
         <img
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
           alt=""
@@ -32,11 +32,13 @@ function Header() {
           <span className="header_optionOne">Your</span>
           <span className="header_optionTwo">Prime</span>
         </div>
-        <div className="header_optionBasket">
-          <ShopppingBasketIcon />
-          <span className="header_optionLineTwo header_basketCount">0</span>
-          {/*Dynamic*/}
-        </div>
+        <Link to="/checkout">
+          <div className="header_optionBasket">
+            <ShopppingBasketIcon />
+            <span className="header_optionLineTwo header_basketCount">0</span>
+            {/*Dynamic*/}
+          </div>
+        </Link>
       </div>
     </div>
   );

@@ -2,9 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-
 import { StateProvider } from "./UseContext/StateProvider";
-
 import reportWebVitals from "./reportWebVitals";
 import Reducer, { initialState } from "./Reducer";
 

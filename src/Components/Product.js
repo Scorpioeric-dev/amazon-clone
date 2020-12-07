@@ -5,7 +5,7 @@ import "../Style/Product.css";
 const Product = ({ id, title, image, price, rating }) => {
   const [{ basket }, dispatch] = useStateValue();
 
-  console.log("my basket >>>", basket);
+  // console.log("my basket >>>", basket);
   const addToBasket = () => {
     //dispatch the function from reducer to add an item into the bucket
     //item is the object being pushed into the bucket (initialState)

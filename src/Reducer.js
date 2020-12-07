@@ -4,11 +4,10 @@ export const initialState = {
 
 //Selectors
 
-export const getBasketTotal = (basket) => {
-  //Goes through (maps) the basket and goes through each amount and will total basket items using  the reduce function
-  //The ? is optional chaining prevents compiling errors ??
+//Goes through (maps) the basket and goes through each amount and will total basket items using  the reduce function
+//The ? is optional chaining prevents compiling errors ??
+export const getBasketTotal = (basket) =>
   basket?.reduce((amount, item) => item.price + amount, 0);
-};
 
 export const removeFromBasket = () => {};
 
@@ -21,8 +20,8 @@ const Reducer = (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
-      //This remove from basket action is to remove the item in the event that said items has een clicked twice
-      
+    //This remove from basket action is to remove the item in the event that said items has een clicked twice
+
     case "REMOVE_FROM_BASKET":
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.id

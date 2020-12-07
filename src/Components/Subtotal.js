@@ -10,6 +10,8 @@ function Subtotal() {
   //   const history = useHistory();
   const [{ basket }, dispatch] = useStateValue();
 
+   console.log(getBasketTotal)
+
   return (
     <div className="subtotal">
       <CurrencyFormat

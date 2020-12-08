@@ -1,5 +1,6 @@
 export const initialState = {
   basket: [],
+  user:null
 };
 
 //Selectors
@@ -13,7 +14,7 @@ export const removeFromBasket = () => {};
 
 //Reducer
 const Reducer = (state, action) => {
-  console.log(action, "hit");
+  // console.log(action, "hit");
   switch (action.type) {
     case "ADD_TO_BASKET":
       return {
@@ -39,6 +40,11 @@ const Reducer = (state, action) => {
         ...state,
         basket: newBasket,
       };
+      case "SET_USER":
+        return {
+          ...state,
+          user: action.user
+        }
 
     default:
       return state;

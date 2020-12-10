@@ -15,7 +15,7 @@ const App = () => {
     auth.onAuthStateChanged((authUser) => {
       console.log("THE USER IS >>", authUser);
       if (authUser) {
-        //The user just logged in /the userwas logged in
+        //The user just logged in /the user was logged in
         dispatch({
           type:'SET_USER',
           user:authUser
@@ -33,7 +33,7 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        {/*Header rendered throughout application*/}
+        
 
         <Switch>
           <Route path="/login">

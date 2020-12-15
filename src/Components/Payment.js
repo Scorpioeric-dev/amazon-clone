@@ -21,9 +21,11 @@ const Payment = () => {
             <h3>Delivery Address</h3>
           </div>
           <div className="payment_address">
-            <p>{user?.email}</p>
-            <p>123 React Lane</p>
-            <p>Las Vegas, NV</p>
+            <strong>
+              <p>{user?.email}</p>
+              <p>123 React Lane</p>
+              <p>Las Vegas, NV</p>
+            </strong>
           </div>
         </div>
 
@@ -35,6 +37,7 @@ const Payment = () => {
           </div>
           <div className="payment_items">
             {/*basket -- calling in the checkoutProduct component */}
+            
             {basket.map((item) => (
               <CheckoutProduct
                 id={item.id}
@@ -52,10 +55,7 @@ const Payment = () => {
           <div className="payment_title">
             <h3>Payment Method</h3>
           </div>
-          <div className="payment_details">
-          {/*Stripe Magic*/}
-          
-          </div>
+          <div className="payment_details">{/*Stripe Magic*/}</div>
         </div>
       </div>
     </div>

@@ -7,9 +7,10 @@ import Login from "./Components/Login";
 import Home from "./Components/Home";
 import { auth } from "./firebase";
 import { useStateValue } from "./UseContext/StateProvider";
+import Payment from "./Components/Payment";
 
 const App = () => {
-  const [{},dispatch] = useStateValue()
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -17,15 +18,15 @@ const App = () => {
       if (authUser) {
         //The user just logged in /the user was logged in
         dispatch({
-          type:'SET_USER',
-          user:authUser
-        })
+          type: "SET_USER",
+          user: authUser,
+        });
       } else {
         //the user is logged out
         dispatch({
-          type:"SET_USER",
-          user:null
-        })
+          type: "SET_USER",
+          user: null,
+        });
       }
     });
   }, []);
@@ -33,8 +34,6 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        
-
         <Switch>
           <Route path="/login">
             <Login />
@@ -43,6 +42,11 @@ const App = () => {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
 
           <Route path="/">

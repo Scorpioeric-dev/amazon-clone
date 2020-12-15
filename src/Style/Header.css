@@ -37,10 +37,12 @@
 }
 .header_optionOne{
   font-size:10px;
+  text-decoration: none;
 }
 .header_optionTwo{
   font-size:13px;
   font-weight:800;
+  text-decoration: none;
 }
 
 .header_option {
@@ -54,6 +56,7 @@
   display:flex;
   align-items:center;
   color:white;
+  text-decoration: none;
 }
 
 .header_basketCount{

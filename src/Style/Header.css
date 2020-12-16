@@ -51,6 +51,7 @@
   margin-left: 10px;
   margin-right: 10px;
   color: white;
+  text-decoration: none;
 }
 .header_optionBasket{
   display:flex;
@@ -62,4 +63,5 @@
 .header_basketCount{
   margin-left:10px;
   margin-right:10px;
+  text-decoration: none;
 }

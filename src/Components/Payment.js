@@ -2,18 +2,16 @@ import React, { useState, useEffect } from "react";
 import "../Style/Payment.css";
 import { useStateValue } from "../UseContext/StateProvider";
 import CheckoutProduct from "../Components/CheckoutProduct";
-import { Link,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 //grabbing the HOC's from Stripe
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../Reducer";
-import axios from "axios";
-
-
+import axios from "../Components/axios";
 
 const Payment = () => {
   const [{ basket, user }, dispatch] = useStateValue();
-  const history = useHistory()
+  const history = useHistory();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -27,23 +25,26 @@ const Payment = () => {
   useEffect(() => {
     //generate the special stripe secret which allows us to charge the customer
     const getClientSecret = async () => {
-      const response = await axios.post(
+      const response = await axios({
+        method: "post",
+        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
         //Stripe expects the total in a currencies subunit 1 dollar = 100 cents
-        `/payments/create?total=${getBasketTotal(basket) * 100}`
-      );
+      });
+
       setClientSecret(response.data.clientSecret);
     };
 
     getClientSecret();
   }, [basket]);
 
-
+  console.log("What is the secret", clientSecret);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true); //Controls the button
 
-    const payload = await stripe.confirmCardPayment(clientSecret, {
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
         },
@@ -53,7 +54,7 @@ const Payment = () => {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
-      
+
         history.replace("/orders");
       });
 

@@ -7,7 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../Reducer";
-import axios from "../Components/axios";
+import axios from "../axios";
 
 const Payment = () => {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -43,13 +43,11 @@ const Payment = () => {
     event.preventDefault();
     setProcessing(true); //Controls the button
 
-    const payload = await stripe
-      .confirmCardPayment(clientSecret, {
+    const payload = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
         },
-      })
-      .then(({ paymentIntent }) => {
+      }).then(({ paymentIntent }) => {
         //payment Intent = payment confirmation
         setSucceeded(true);
         setError(null);
@@ -110,12 +108,14 @@ const Payment = () => {
         </div>
 
         {/*payment section - Payment Method*/}
+
         <div className="payment_section">
           <div className="payment_title">
             <h3>Payment Method</h3>
           </div>
           <div className="payment_details">
             {/*Stripe Magic*/}
+
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
               <div className="payment_priceContainer">

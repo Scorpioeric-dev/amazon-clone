@@ -13,18 +13,20 @@ app.use(cors({origin:true}))
 app.use(express.json())
 
 //-API endpoints
-app.get('/', (req,res) => {
-    res.status(200).send('hello world ')
+app.get('/', (request,response) => {
+    response.status(200).send('Hello my peeps! ')
 })
 
-app.post('/payments/create', async (req,res) => {
-    const total = req.query.total
-    console.log('Payment Request received for this amount', total)
-    const paymentIntent = await stripe.paymentIntent.create({
+
+
+app.post('/payments/create', async (request,response) => {
+    const total = request.query.total
+    console.log('Payment Request Received for this amount', total)
+    const paymentIntent = await stripe.paymentIntents.create({
         amount:total,
         currency:'usd',
     })
-    res.status(201).send({
+    response.status(201).send({
         clientSecret: paymentIntent.client_secret,
 
     })
@@ -35,3 +37,6 @@ app.post('/payments/create', async (req,res) => {
 //-Listen command 
 exports.api = functions.https.onRequest(app)
 
+//Firebase endpoint
+//example end point
+// http://localhost:5001/clone-e2c91/us-central1/api

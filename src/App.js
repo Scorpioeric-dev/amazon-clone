@@ -1,13 +1,16 @@
 import "./App.css";
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useStateValue } from "./UseContext/StateProvider";
+
 import Header from "./Components/Header";
 import Checkout from "./Components/Checkout";
 import Login from "./Components/Login";
 import Home from "./Components/Home";
-import { auth } from "./firebase";
-import { useStateValue } from "./UseContext/StateProvider";
+import Orders from "./Components/Orders";
 import Payment from "./Components/Payment";
+
+import { auth } from "./firebase";
 import { loadStripe } from "@stripe/stripe-js";
 //HOC wrapping the component processing payment calling the promise public key
 import { Elements } from "@stripe/react-stripe-js";
@@ -46,7 +49,10 @@ const App = () => {
           <Route path="/login">
             <Login />
           </Route>
-
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/checkout">
             <Header />
             <Checkout />

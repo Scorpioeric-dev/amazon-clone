@@ -11,13 +11,12 @@ import { auth } from "../firebase";
 const Header = () => {
   const [{ basket, user }, dispatch] = useStateValue();
 
-
-  //Handles the signout aaspect 
+  //Handles the signout aaspect
   const handleAuthentication = () => {
     if (user) {
-      auth.signOut()
+      auth.signOut();
     }
-  }
+  };
 
   return (
     <div className="header">
@@ -37,17 +36,20 @@ const Header = () => {
 
         <Link to={!user && "./login"}>
           <div onClick={handleAuthentication} className="header_option">
-            <span className="header_optionOne">Hello {!user ? 'Guest' : user.email }</span>
+            <span className="header_optionOne">
+              Hello {!user ? "Guest" : user.email}
+            </span>
             <span className="header_optionTwo">
               {user ? "Sign Out" : "Sign In"}
             </span>
           </div>
         </Link>
-
-        <div className="header_option">
-          <span className="header_optionOne">Returns</span>
-          <span className="header_optionTwo">& Orders</span>
-        </div>
+        <Link to="/orders">
+          <div className="header_option">
+            <span className="header_optionOne">Returns</span>
+            <span className="header_optionTwo">& Orders</span>
+          </div>
+        </Link>
         <div className="header_option">
           <span className="header_optionOne">Your</span>
           <span className="header_optionTwo">Prime</span>

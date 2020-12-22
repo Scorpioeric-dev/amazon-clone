@@ -3,7 +3,7 @@ import "../Style/CheckoutProduct.css";
 import { useStateValue } from "../UseContext/StateProvider";
 import Slide from "react-reveal/Slide";
 
-const CheckoutProduct = ({ id, image, title, price, rating }) => {
+const CheckoutProduct = ({ id, image, title, price, rating, hideButton }) => {
   const [{ basket }, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
@@ -31,11 +31,13 @@ const CheckoutProduct = ({ id, image, title, price, rating }) => {
                 <p>⭐</p>
               ))}
           </div>
-          <button onClick={removeFromBasket}>Remove from Basket</button>
+          {!hideButton && (
+            <button onClick={removeFromBasket}>Remove from Basket</button>
+          )}
         </div>
       </div>
     </Slide>
   );
-}
+};
 
 export default CheckoutProduct;

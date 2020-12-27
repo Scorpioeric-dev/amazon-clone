@@ -39,7 +39,7 @@ const Payment = () => {
   }, [basket]);
 
   console.log("What is the secret", clientSecret);
-  console.log(":person", user);
+  console.log("Person", user);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
